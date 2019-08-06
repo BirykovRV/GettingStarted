@@ -21,8 +21,10 @@ namespace GettingStartedHost
             {
                 selfHost.AddServiceEndpoint(typeof(ICalculator), new WSHttpBinding(), "CalculatorService");
 
-                ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
-                smb.HttpGetEnabled = true;
+                ServiceMetadataBehavior smb = new ServiceMetadataBehavior
+                {
+                    HttpGetEnabled = true
+                };
                 selfHost.Description.Behaviors.Add(smb);
 
                 selfHost.Open();
